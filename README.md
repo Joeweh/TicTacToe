@@ -1,8 +1,6 @@
 # TicTacToeUtils
 Java Utilities For A Tic-tac-toe implementation. Includes two AI opponents of varying difficulty
 
-## Title
-
 ### Place 1
 
 Hello, this is some text to fill in this, [here](#place-2), is a link to the second place.
