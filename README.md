@@ -13,4 +13,4 @@ Place one has the fun times of linking here, but I can also link back [here](#pl
 
 ### Place's 3: other example
 
-Place one has the fun times of linking here, but I can also link back [here](#places-3-other-example).
+Place one has the fun times of linking here, but I can also link back [here](#tictactoeutils).
