@@ -7,7 +7,7 @@ import com.github.obeseclown.tictactoe.core.Tile;
 
 public class MinimaxAI {
 	
-    private static int minimax(Board board, int depth, boolean isMaximizing, Player AIPlayer) 
+    private static int minimax(Board board, int depth, boolean isMaximizing, Player AIPlayer, int alpha, int beta) 
     {
         Tile.TileState opponent;
         int score = board.evaluate(AIPlayer);
@@ -34,9 +34,16 @@ public class MinimaxAI {
                     {
                         board.getTiles()[i][j].setState(AIPlayer.getMarker());
 
-                        best = Math.max(best, minimax(board, depth + 1, !isMaximizing, AIPlayer));
+                        best = Math.max(best, minimax(board, depth + 1, !isMaximizing, AIPlayer, alpha, beta));
 
                         board.getTiles()[i][j].setState(Tile.TileState.BLANK);
+                        
+                        alpha = Math.max(alpha, best);
+                        
+                        if (beta <= alpha)
+                        {
+                        	break;
+                        }
                     }
                 }
             }
@@ -55,9 +62,16 @@ public class MinimaxAI {
                     {
                         board.getTiles()[i][j].setState(opponent);
 
-                        best = Math.min(best, minimax(board, depth + 1, !isMaximizing, AIPlayer));
+                        best = Math.min(best, minimax(board, depth + 1, !isMaximizing, AIPlayer, alpha, beta));
 
                         board.getTiles()[i][j].setState(Tile.TileState.BLANK);
+                        
+                        beta = Math.min(beta, best);
+                        
+                        if (beta <= alpha)
+                        {
+                        	break;
+                        }
                     }
                 }
             }
@@ -78,7 +92,7 @@ public class MinimaxAI {
                 {
                     board.getTiles()[i][j].setState(player.getMarker());
 
-                    int moveValue = minimax(board, 0, false, player);
+                    int moveValue = minimax(board, 0, false, player, Integer.MAX_VALUE, Integer.MIN_VALUE);
 
                     board.getTiles()[i][j].setState(Tile.TileState.BLANK);
 
