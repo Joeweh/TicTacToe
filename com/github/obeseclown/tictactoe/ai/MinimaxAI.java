@@ -47,6 +47,7 @@ public class MinimaxAI {
                     }
                 }
             }
+            
             return best;
         }
 
@@ -92,7 +93,7 @@ public class MinimaxAI {
                 {
                     board.getTiles()[i][j].setState(player.getMarker());
 
-                    int moveValue = minimax(board, 0, false, player, Integer.MAX_VALUE, Integer.MIN_VALUE);
+                    int moveValue = minimax(board, 0, false, player, Integer.MIN_VALUE, Integer.MAX_VALUE);
 
                     board.getTiles()[i][j].setState(Tile.TileState.BLANK);
 
