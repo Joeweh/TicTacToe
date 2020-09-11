@@ -3,10 +3,10 @@ package com.github.obeseclown.tictactoe.examples;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.github.obeseclown.tictactoe.core.GameParent;
 import com.github.obeseclown.tictactoe.core.Move;
 import com.github.obeseclown.tictactoe.core.Player;
 import com.github.obeseclown.tictactoe.core.Tile;
+import com.github.obeseclown.tictactoe.utils.GameParent;
 
 public class PlayerGame extends GameParent {
 	
